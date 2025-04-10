@@ -1,20 +1,17 @@
-# 1. Baza - uzimamo Python 3.10
-
+# 1. Baza - Python
 FROM python:3.10-slim
 
-# 2. Postavljamo radni direktorijum
+# 2. Radni direktorijum unutar kontejnera
 WORKDIR /app
 
-# 3. Kopiramo sve fajlove u kontejner
+# 3. Kopiranje svih fajlova u kontejner
+COPY . .
 
-COPY .. 
+# 4. Instalacija Python biblioteka
+RUN pip install --no-cache-dir -r requirements.txt
 
-# 4. Instaliramo zavisnosti
-
-RUN pip install --no-cache -r requirements.txt
-
-# 5. Expose-ujemo port na kojem Flask radi
+# 5. Otvori port 5000
 EXPOSE 5000
 
-# 6. Pokrecemo aplikaciju
-CMD ["python","app.py"]
+# 6. Pokreni app.py
+CMD ["python", "app.py"]
