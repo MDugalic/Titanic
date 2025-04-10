@@ -15,7 +15,7 @@ FEATURE_ORDER = ['Pclass', 'Sex', 'Age', 'SibSp', 'Parch', 'Fare', 'Embarked_Q',
 def home():
     return "Titanic Survival Prediction API is runnging!"
 
-@app.route('/predict',methods = ['Post'])
+@app.route('/predict',methods = ['POST'])
 def predict():
     try:
         data = request.get_json()
